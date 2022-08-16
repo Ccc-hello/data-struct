@@ -20,6 +20,6 @@ int main()
     printf("after the heapsort is:\n");
     traversal_arr(arr,LENGTH);
     printf("\n");
-    
+    printf(1122212);
     return 0;
 }
