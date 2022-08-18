@@ -20,5 +20,21 @@ int main()
     printf("after the heapsort is:\n");
     traversal_arr(arr,LENGTH);
     printf("\n");
+
+    produce_arr(arr,LENGTH);
+    printf("the original array is:\n");
+    traversal_arr(arr,LENGTH);
+    insersort(arr,LENGTH);
+    printf("after the insertsort is:\n");
+    traversal_arr(arr,LENGTH);
+    printf("\n");
+
+    produce_arr(arr,LENGTH);
+    printf("the original array is:\n");
+    traversal_arr(arr,LENGTH);
+    shellsort(arr,LENGTH);
+    printf("after the shellsort is:\n");
+    traversal_arr(arr,LENGTH);
+    printf("\n");
     return 0;
 }
