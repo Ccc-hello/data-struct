@@ -24,6 +24,21 @@ void swap(int *__src,int *__dest)
     *__dest = temp;
 }
 
+//冒泡排序
+void bubble_sort(int *__src,int len)
+{
+    int i,j;
+    for(i = 0;i < len-1; i ++)
+    {
+        for(j=0;j<len-i-1;j++)
+        {
+            if(__src[j]>__src[j+1])
+                swap(&__src[j],&__src[j+1]);
+        }
+    }
+}
+
+
 //快速排序；
 void quick_sort(int *__src,int l,int r)
 {
@@ -32,21 +47,21 @@ void quick_sort(int *__src,int l,int r)
         int i=l,j=r,x = __src[l];
         while(i<j)
         {
-            while (i<j && __src[j] >= x)
+            while (i<j && __src[j] >= x)//从右向左找第一个小于x的数
                 j--;
 
             if(i<j)
                 __src[i++] = __src[j];
 
-            while(i<j && __src[i]<x)
+            while(i<j && __src[i]<x)//从左向右找到第一个大于等x的数
                 i++;
                 
             if(i<j)
                 __src[j--]= __src[i];
         }
         __src[i] = x;
-        quick_sort(__src,l,i-1);
-        quick_sort(__src,i+1,r);
+        quick_sort(__src,l,i-1);//排序x左边的数
+        quick_sort(__src,i+1,r);//排序x右边的数
     }
 }
 
@@ -98,7 +113,7 @@ void insersort(int *__src,int length)
 }
 
 //希尔排序
-void groupsort(int *__src,int length,int l,int step)
+/* void groupsort(int *__src,int length,int l,int step)
 {
      int i,j;
      int temp;
@@ -114,13 +129,28 @@ void groupsort(int *__src,int length,int l,int step)
         __src[j+step] = temp;
      }
 }
-
-void shellsort(int *__src,int length)
+ */
+/* void shellsort(int *__src,int length)
 {
     int i,step;
     for (step = length/2;step>0;step/=2)
     {
         for(i=0;i<step;i++)
             groupsort(__src,length,i,step);
+    }
+} */
+
+void shellsort(int *__src,int length)
+{
+    int i,j,step,temp;
+    for(step = length/2;step > 0; step /= 2)
+    {
+        for(i=step;i<length;i++)
+        {
+            temp = __src[i];
+            for(j=i;j>=step && temp < __src[j-step];j -= step)
+                __src[j] = __src[j-step];
+            __src[j] = temp;
+        }
     }
 }

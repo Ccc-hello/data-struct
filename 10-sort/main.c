@@ -8,6 +8,14 @@ int main()
     produce_arr(arr,LENGTH);
     printf("the original array is:\n");  
     traversal_arr(arr,LENGTH);
+    printf("after the bubblesort is:\n");
+    bubble_sort(arr,0,LENGTH-1);
+    traversal_arr(arr,LENGTH);
+    printf("\n");
+
+    produce_arr(arr,LENGTH);
+    printf("the original array is:\n");  
+    traversal_arr(arr,LENGTH);
     printf("after the quicksort is:\n");
     quick_sort(arr,0,LENGTH-1);
     traversal_arr(arr,LENGTH);
